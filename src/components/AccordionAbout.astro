@@ -29,7 +29,9 @@ const { title, description } = Astro.props;
             <div class="employee__email">
               <a href="mailto:mail">{entry.data.email}</a>
             </div>
-            <div class="employee__phone">{entry.data.phone}</div>
+            <div class="employee__phone">
+              <a href={`tel:${entry.data.phone}`}>{entry.data.phone}</a>
+            </div>
           </div>
         ))
       }
