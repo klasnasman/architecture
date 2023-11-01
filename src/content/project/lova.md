@@ -4,18 +4,22 @@ type: Industrial
 location: Svartsö
 country: Italy
 year: 2012
-photographer: Firstname Lastname
+photographer: Foto Fotografsson
 images:
-  - ../../assets/wedding/agnespeter/01.jpg
-  - ../../assets/wedding/agnespeter/02.jpg
-  - ../../assets/wedding/agnespeter/03.jpg
-  - ../../assets/wedding/agnespeter/04.jpg
-  - ../../assets/wedding/agnespeter/05.jpg
-  - ../../assets/wedding/agnespeter/06.jpg
-  - ../../assets/wedding/agnespeter/07.jpg
-  - ../../assets/wedding/agnespeter/08.jpg
-  - ../../assets/wedding/agnespeter/09.jpg
+  - ../../assets/project/ahus/01.jpg
+  - ../../assets/project/ahus/02.jpg
+  - ../../assets/project/ahus/03.jpg
+  - ../../assets/project/ahus/04.jpg
+  - ../../assets/project/ahus/05.jpg
+  - ../../assets/project/ahus/06.jpg
+  - ../../assets/project/ahus/07.jpg
+  - ../../assets/project/ahus/08.jpg
+  - ../../assets/project/ahus/09.jpg
 thumb: ../../assets/thumbs/04.jpg
 ---
 
-Å hus is private home designed for a young couple in Svesta, near Åre. The layout of the ground floor organises the program along a central spine which serves as recess for the entrance, the kitchen, the walk-in closet and the main technical systems. The living area is characterised by its open plan and flexible layout which connects with the upper floor and spills over into the greenhouse, enhancing the relation with the outdoors. Bathroom and the master bedroom are located on the opposite side of the volume – facing east – to ensure morning light and a greater degree of privacy.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+magna aliqua. Dictum non consectetur a erat nam at lectus. Velit scelerisque in dictum non consectetur a. Sed
+adipiscing diam donec adipiscing tristique. Pulvinar mattis nunc sed blandit libero volutpat sed cras ornare.
+Morbi tincidunt ornare massa eget egestas purus. Velit scelerisque in dictum non consectetur a. Sed
+adipiscing diam donec adipiscing tristique.

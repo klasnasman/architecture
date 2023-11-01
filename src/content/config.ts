@@ -17,8 +17,6 @@ const about = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      description: z.string(),
-      images: z.array(image()),
       thumb: image(),
     }),
 });

@@ -1,0 +1,16 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<html>
+  <p>{frontmatter.title}</p>
+  <slot />
+
+
+  <style>
+    p {
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+  </style>
+</html>
