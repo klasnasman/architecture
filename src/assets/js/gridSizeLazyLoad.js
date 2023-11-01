@@ -51,12 +51,10 @@ function handleGridSizeChange() {
 gridOptions.forEach((option) => {
   option.addEventListener("change", () => {
     handleGridSizeChange();
-    checkScroll(); // Call checkScroll when the grid size changes
+    checkScroll();
   });
 });
 
-// Add a scroll event listener to check images when scrolling
 window.addEventListener("scroll", checkScroll);
 
-// Call checkScroll initially when the page loads
 checkScroll();

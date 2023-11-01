@@ -23,7 +23,6 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const currentPath = Astro.url.pathname;
 
-// Remove trailing slash if it exists
 const normalizedPath = currentPath.endsWith("/") ? currentPath.slice(0, -1) : currentPath;
 
 const about = normalizedPath.endsWith("/us");

@@ -94,8 +94,6 @@ const { posts } = Astro.props;
   .project__img {
     min-width: inherit;
     min-height: inherit;
-    /* max-width: 440px; */
-    /* object-fit: contain; */
     aspect-ratio: 4 / 5;
   }
 
@@ -146,13 +144,13 @@ const filterClickHandle = () => {
   const projectLinks = document.querySelectorAll(".project__link");
 
   const openFilters = () => {
-    buttonIcon.classList.add("open"); // Always add the "open" class when opening
+    buttonIcon.classList.add("open");
     filterDiv.classList.add("open");
     sessionStorage.setItem("filtersOpen", "true");
   };
 
   const closeFilters = () => {
-    buttonIcon.classList.remove("open"); // Always remove the "open" class when closing
+    buttonIcon.classList.remove("open");
     filterDiv.classList.remove("open");
     sessionStorage.setItem("filtersOpen", "false");
   };
@@ -185,7 +183,7 @@ const filterClickHandle = () => {
 
   const filtersOpen = sessionStorage.getItem("filtersOpen");
   if (filtersOpen === "true") {
-    openFilters(); // Make sure to open the filters if they were open
+    openFilters();
   }
 };
 
