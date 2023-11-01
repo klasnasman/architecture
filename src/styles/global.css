@@ -51,13 +51,10 @@ main {
     transform: translateY(0);
 }
 
-:where(a) {
-    display: inline-block;
+:where(a, p, label) {
     text-decoration: none;
-    color: var(--color-text);
-}
-
-:where(p) {
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
     color: var(--color-text);
     text-wrap: pretty;
 }
