@@ -22,12 +22,11 @@ const canonicalURL = (Astro.url.pathname, Astro.site);
     <meta property="og:description" content="Wedding Photographer based in Stockholm, Sweden." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Klas Näsman Wedding Photography" />
+    <meta property="og:url" content={canonicalURL} />
     <meta name="theme-color" content="#000000" />
-    <meta name="format-detection" content="telephone=no" />
+    <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <link rel="manifest" href="/manifest.json" />
-    <link rel="canonical" href={canonicalURL} />
-    <meta property="og:url" content={canonicalURL} />
   </head>
   <body>
     <Header />
