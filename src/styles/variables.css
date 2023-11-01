@@ -1,0 +1,45 @@
+:root {
+  --step-0: clamp(0.8rem, calc(0.60rem + 0.55vw), 0.875rem);
+  --step-1: clamp(1rem, calc(0.85rem + 0.85vw), 1.25rem);
+  --step-4: clamp(2.4413rem, 2.2289rem + 1.062vw, 3.0519rem);
+
+  --ff-body: 'Necto Mono', 'Sohne Mono', 'Maison Neue', 'Apercu', 'Inconsolata', 'Bergen Mono', 'Verdana', serif;
+  --ff-logo: 'Futwora', 'Verdana', sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-bold: 600;
+
+  --spacer-xs: 0.25rem;
+  --spacer-s: 0.5rem;
+  --spacer-m: 1rem;
+  --spacer-l: 2rem;
+  --spacer-xl: 4rem;
+  --spacer-xxl: 8rem;
+
+  --ease-s: 0.4s;
+  --ease-m: 0.6s;
+
+  --container-width: min(120ch, calc(100% - 2rem));
+  --container-start: 12rem;
+  --header-height: 48px;
+  --header-height-neg: -48px;
+
+  --grid-columns-small: repeat(auto-fill, minmax(min(100%, 160px), 3fr));
+  --grid-columns-medium: repeat(auto-fill, minmax(min(100%, 320px), 3fr));
+  --grid-columns-large: repeat(auto-fill, minmax(min(100%, 480px), 3fr));
+
+  --color-bg: hsl(60, 3%, 94%);
+  --color-text: black;
+  --color-yellow1: hsl(52, 100%, 72%);
+  --color-yellow2: hsl(43, 90%, 58%);
+  --color-purple: hsl(240, 100%, 91%);
+  --color-red: hsl(11, 93%, 56%);
+}
+
+
+@media (width<=900px) {
+  :root {
+    --container-start: 8rem;
+  }
+}

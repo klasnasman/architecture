@@ -1,0 +1,126 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Container from "@layouts/Container.astro";
+
+interface Props {
+  entry: CollectionEntry<"project">;
+}
+
+export async function getStaticPaths() {
+  const projects = await getCollection("project");
+  return projects.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const photos = entry.data.images;
+---
+
+<BaseLayout title={`${entry.data.project}`}>
+  <Container>
+    <div class="content">
+      <div class="markdown flow">
+        <Content />
+      </div>
+      <div class="project__title">
+        <div class="project__row">
+          <p class="text">Project</p><div class="line"></div><p class="text">
+            {entry.data.project}
+          </p>
+        </div>
+        <div class="project__row">
+          <p class="text">Type</p><div class="line"></div><p class="text">
+            {entry.data.type}
+          </p>
+        </div>
+        <div class="project__row">
+          <p class="text">Location</p><div class="line"></div><p class="text">
+            {entry.data.location}, {entry.data.country}
+          </p>
+        </div>
+        <div class="project__row">
+          <p class="text">Year</p><div class="line"></div><p class="text">
+            {entry.data.year}
+          </p>
+        </div>
+        <div class="project__row">
+          <p class="text">Photographer</p><div class="line"></div><p class="text">
+            {entry.data.photographer}
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+  <section class="project__photos">
+    {
+      photos.map((photo) => (
+        <div class="projects">
+          <Image class="project__img lazy__load" src={photo} alt="Wedding Photo, couple" width={1200} />
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding-block-end: 2rem;
+  }
+
+  @media (width<= 900px) {
+    .content {
+      flex-direction: column;
+    }
+  }
+
+  .markdown {
+    flex: 2;
+  }
+
+  .project__title {
+    flex: 1;
+    text-transform: capitalize;
+  }
+
+  .project__row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .text {
+    flex-shrink: 0;
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+  }
+
+  .project__photos {
+    display: grid;
+    justify-items: center;
+    grid-gap: var(--spacer-m);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 3fr));
+    padding-inline: var(--spacer-m);
+    padding-block-end: var(--spacer-l);
+  }
+
+  .project__img {
+    min-width: inherit;
+    min-height: inherit;
+    /* max-width: 440px; */
+    aspect-ratio: 4 / 5;
+  }
+</style>

@@ -1,0 +1,158 @@
+---
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("project");
+
+const uniqueTypes = new Set();
+projects.forEach((entry) => {
+  uniqueTypes.add(entry.data.type);
+});
+
+const uniqueTypesArray = Array.from(uniqueTypes);
+uniqueTypesArray.sort();
+const currentPath = Astro.url.pathname;
+---
+
+<div class="filter__container">
+  <div class="filter__inner">
+    <button id="filter__btn">FILTER<span id="button__icon">+</span></button>
+  </div>
+  <div class="grid__size__options">
+    <p class="grid__size__title">GRID:</p>
+    <div class="grid__labels">
+      <input type="radio" name="grid__size" value="small" id="small" />
+      <label for="small">Small</label>
+      <input type="radio" name="grid__size" value="medium" id="medium" checked />
+      <label for="medium">Medium</label>
+      <input type="radio" name="grid__size" value="large" id="large" />
+      <label for="large">Large</label>
+    </div>
+  </div>
+</div>
+<div class="filters">
+  <a href="/">
+    <button id="filter" class={`filter ${currentPath === "/" ? "selected" : ""}`}>All</button>
+  </a>
+  {
+    uniqueTypesArray.map((tag) => (
+      <a href={`/category/${tag}`}>
+        <button
+          id="filter"
+          class={`filter ${decodeURIComponent(currentPath) === `/category/${tag}` ? "selected" : ""}`}>
+          {tag}
+        </button>
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  :root {
+    --gap: 0.875rem;
+  }
+
+  .filter__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-inline: var(--spacer-m);
+    padding-block-start: var(--spacer-s);
+    padding-block-end: var(--spacer-m);
+    height: calc(var(--header-height) + 3px);
+    position: fixed;
+    width: 100%;
+    bottom: 0rem;
+    background-color: var(--color-bg);
+    z-index: 1;
+  }
+
+  .filter__inner {
+    display: flex;
+    align-items: start;
+    gap: calc(var(--gap) / 2);
+  }
+
+  @media (width <=900px) {
+    .filter__inner {
+      display: flex;
+      gap: 0.5rem;
+      align-items: end;
+      justify-content: start;
+      justify-items: start;
+      text-align: right;
+      text-wrap: balance;
+    }
+  }
+
+  .filters {
+    position: fixed;
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    bottom: 0rem;
+    width: 100%;
+    background-color: var(--color-bg);
+    transform: translateY(0rem);
+    transition: transform 0.6s ease 0.4s;
+  }
+
+  .filters.open {
+    transform: translateY(var(--header-height-neg));
+    transition: transform 0.6s cubic-bezier(0.22, 1.37, 0.64, 1) 0.4s;
+  }
+
+  .filter {
+    text-transform: capitalize;
+    margin-inline-end: var(--gap);
+  }
+
+  .grid__size__options {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: end;
+  }
+
+  .grid__labels label:nth-of-type(2) {
+    margin-inline: var(--gap);
+  }
+
+  @media (width <=940px) {
+    .grid__size__options {
+      display: none;
+    }
+  }
+
+  .grid__size__title {
+    margin-inline-end: 1ch;
+  }
+
+  .grid__size__options input[type="radio"]:checked + label,
+  .selected,
+  .filter:hover,
+  label:hover {
+    text-decoration: underline;
+  }
+
+  input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+
+  #filter__btn {
+    white-space: nowrap;
+  }
+
+  #button__icon {
+    font-family: var(--ff-body);
+    margin-inline-start: 0.5rem;
+    transition:
+      transform 0.6s ease-out,
+      color 0.6s ease-out;
+    display: inline-block;
+  }
+
+  #button__icon.open {
+    transform: rotate(135deg);
+    color: red;
+  }
+</style>

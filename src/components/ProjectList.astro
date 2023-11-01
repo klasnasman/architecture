@@ -1,0 +1,156 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const currentPath = Astro.url.pathname;
+const projects = await getCollection("project");
+---
+
+<div class="table">
+  <div class="table__heading">
+    <p class="item" data-sort="project">Project</p>
+    <p class="item" data-sort="type">Type</p>
+    <p class="item" data-sort="location">Location</p>
+    <p class="item" data-sort="country">Country</p>
+    <p data-sort="year">Year</p>
+  </div>
+  {
+    projects.map((entry) => (
+      <a
+        class={`table__item link ${
+          currentPath === `/project/${entry.slug}/` ? "active" : ""
+        }`}
+        href={`/project/${entry.slug}`}>
+        <p class="table__title item" data-sort="project">
+          {entry.data.project}
+        </p>
+        <p class="table__category item" data-sort="type">
+          {entry.data.type}
+        </p>
+        <p class="table__location item" data-sort="location">
+          {entry.data.location}
+        </p>
+        <p class="table__country item" data-sort="country">
+          {entry.data.country}
+        </p>
+        <p class="table__year" data-sort="year">
+          {entry.data.year}
+        </p>
+        <Image
+          class="table__thumb"
+          src={entry.data.thumb}
+          alt="Wedding photo, couple"
+          width={360}
+        />
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .table {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    z-index: 30;
+
+    & a:first-of-type {
+      padding-top: var(--spacer-m);
+    }
+  }
+
+  .table__heading {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid;
+    text-transform: uppercase;
+    width: 100%;
+
+    & p {
+      text-transform: uppercase;
+    }
+
+    & p:last-of-type {
+      text-align: right;
+    }
+  }
+
+  .table__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 100%;
+    padding-block: var(--spacer-s);
+  }
+
+  .item {
+    text-transform: capitalize;
+    flex: 1 1;
+    padding-inline-end: var(--spacer-xs);
+
+    &:last-of-type {
+      text-align: right;
+    }
+  }
+
+  .table__thumb {
+    display: none;
+  }
+
+  .table__item:hover .table__thumb {
+    display: block;
+    position: absolute;
+    height: 200px;
+    width: auto;
+    aspect-ratio: 4 / 5;
+    z-index: -1;
+  }
+
+  @media (width<= 900px) {
+    .table__item:hover .table__thumb {
+      display: none;
+    }
+  }
+
+  .link {
+    position: relative;
+    z-index: -1;
+  }
+
+  .link:hover {
+    z-index: 999;
+  }
+
+  @media (width<= 900px) {
+    [data-sort="country"] {
+      display: none;
+    }
+  }
+</style>
+
+<script is:inline>
+const items = document.querySelectorAll(".table__item");
+
+items.forEach((el) => {
+  const image = el.querySelector("img");
+  const marginX = -50;
+  const marginY = 0;
+
+  el.addEventListener("mouseenter", () => {
+    image.style.opacity = 1;
+    el.addEventListener("mousemove", moveImage);
+  });
+
+  el.addEventListener("mouseleave", () => {
+    image.style.opacity = 0;
+    el.removeEventListener("mousemove", moveImage);
+  });
+
+  function moveImage(e) {
+    const boundingBox = el.getBoundingClientRect();
+    const offsetX = e.clientX - boundingBox.left - marginX;
+    const offsetY = e.clientY - boundingBox.top - marginY;
+    image.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+  }
+});
+</script>

@@ -1,0 +1,176 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Filters from "@components/Filters.astro";
+import Transitions from "@components/Transitions";
+
+const projects = await getCollection("project");
+---
+
+<BaseLayout title="arkitektbyrå">
+  <Transitions client:load>
+    <section class="project__photos">
+      {
+        projects.map((entry) => (
+          <div class="projects">
+            <a href={`/project/${entry.slug}`} class="project__link">
+              <figure>
+                <Image class="project__img lazy__load" src={entry.data.thumb} alt="" width={1200} />
+              </figure>
+              <div class="project__title">
+                <div class="project__row">
+                  <p class="text">{entry.data.project}</p>
+                  <div class="line" />
+                  <p class="text">{entry.data.type}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))
+      }
+    </section>
+  </Transitions>
+  <Filters />
+</BaseLayout>
+
+<style>
+  .project__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .row__wrap {
+    gap: 0rem;
+    flex-wrap: wrap;
+  }
+
+  .text {
+    flex-shrink: 0;
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+  }
+
+  .project__photos {
+    display: grid;
+    justify-items: center;
+    grid-gap: var(--spacer-m);
+    grid-template-columns: var(--grid-columns-medium);
+    padding-inline: var(--spacer-m);
+    padding-block-end: var(--spacer-l);
+  }
+
+  .smaller-grid {
+    grid-template-columns: var(--grid-columns-small);
+  }
+
+  .larger-grid {
+    grid-template-columns: var(--grid-columns-large);
+  }
+
+  .project__img {
+    min-width: inherit;
+    min-height: inherit;
+    /* max-width: 440px; */
+    aspect-ratio: 4 / 5;
+  }
+
+  .project__img:hover {
+    outline: 1px solid black;
+  }
+
+  .project__title {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    text-transform: capitalize;
+    position: initial;
+    margin-block-start: var(--spacer-xs);
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      visibility 0.2s linear,
+      opacity 0.2s linear;
+  }
+
+  @media (hover: none) {
+    .project__title {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  @media (width <=900px) {
+    .project__title {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  a:hover .project__title {
+    visibility: visible;
+    opacity: 1;
+  }
+</style>
+
+<script is:inline>
+const filterClickHandle = () => {
+  const buttonIcon = document.getElementById("button__icon");
+  const filterButton = document.getElementById("filter__btn");
+  const filterDiv = document.querySelector(".filters");
+  const navLinks = document.querySelectorAll(".link");
+  const projectLinks = document.querySelectorAll(".project__link");
+
+  const openFilters = () => {
+    buttonIcon.classList.add("open"); // Always add the "open" class when opening
+    filterDiv.classList.add("open");
+    sessionStorage.setItem("filtersOpen", "true");
+  };
+
+  const closeFilters = () => {
+    buttonIcon.classList.remove("open"); // Always remove the "open" class when closing
+    filterDiv.classList.remove("open");
+    sessionStorage.setItem("filtersOpen", "false");
+  };
+
+  if (window.location.pathname.includes("/project")) {
+    closeFilters();
+  }
+
+  if (filterButton) {
+    filterButton.addEventListener("click", (event) => {
+      if (filterDiv.classList.contains("open")) {
+        closeFilters();
+      } else {
+        openFilters();
+      }
+    });
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeFilters();
+    });
+  });
+
+  projectLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      closeFilters();
+    });
+  });
+
+  const filtersOpen = sessionStorage.getItem("filtersOpen");
+  if (filtersOpen === "true") {
+    openFilters(); // Make sure to open the filters if they were open
+  }
+};
+
+filterClickHandle();
+</script>

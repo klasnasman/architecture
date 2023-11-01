@@ -1,0 +1,19 @@
+---
+import Transitions from "@components/Transitions";
+---
+
+<div class="container">
+  <Transitions client:load>
+    <slot />
+  </Transitions>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: var(--container-width);
+    margin-inline: auto;
+  }
+</style>

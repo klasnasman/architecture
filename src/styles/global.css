@@ -1,0 +1,68 @@
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0);
+    border-right: 2px solid black;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+html {
+    scrollbar-gutter: stable;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    font-weight: var(--fw-regular);
+    font-family: var(--ff-body);
+    font-size: var(--step-0);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 8rem;
+    min-height: 100dvh;
+    width: 100vw;
+}
+
+.flow>*+* {
+    margin-top: var(--flow-space, 0.5em);
+}
+
+.lazy__load {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(10px);
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+}
+
+.lazy__load-active {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+:where(a) {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+:where(p) {
+    color: var(--color-text);
+    text-wrap: pretty;
+}
+
+/* selected and hover states */
+/* header.astro */
+
+/* filters.astro */

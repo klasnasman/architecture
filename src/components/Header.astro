@@ -1,0 +1,73 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<header class="header">
+  <nav>
+    <div class="nav__logo"><a href="/">Årsta Arkitektbyrå</a></div>
+    <div class="nav__links">
+      <a class={`link ${currentPath === "/" ? "selected" : ""}`} href="/">Work</a>
+      <a class={`link ${currentPath === "/about/process" ? "selected" : ""}`} href="/about/process">Process</a>
+      <a class={`link ${currentPath === "/about/us" ? "selected" : ""}`} href="/about/us">About</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    --_width: calc(100vw - 0rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    gap: 1rem;
+    top: 0rem;
+    left: calc((100% - var(--_width)) / 2);
+    width: var(--_width);
+    text-transform: uppercase;
+    z-index: 100;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    background-color: var(--color-bg);
+    padding-inline: var(--spacer-m);
+    padding-block: var(--spacer-s);
+    width: inherit;
+  }
+
+  @media (width<= 900px) {
+    nav {
+      padding-inline: var(--spacer-m);
+      padding-block: var(--spacer-s);
+    }
+  }
+
+  .nav__logo {
+    border: 1px solid black;
+    padding-inline: 0.5rem;
+    padding-block: 0.25rem;
+    white-space: nowrap;
+  }
+
+  .nav__links {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  @media (width<= 900px) {
+    .nav__links {
+      display: flex;
+      gap: 0.25rem;
+    }
+  }
+
+  .selected,
+  .link:hover {
+    text-decoration: underline;
+  }
+</style>
