@@ -26,12 +26,8 @@ const { title, description } = Astro.props;
             </figure>
             <div class="employee__name">{entry.data.name}</div>
             <div class="employee__position">{entry.data.position}</div>
-            <div class="employee__email">
-              <p class="ios__underline">{entry.data.email}</p>
-            </div>
-            <div class="employee__phone">
-              <p class="ios__underline">{entry.data.phone}</p>
-            </div>
+            <div class="employee__email">{entry.data.email}</div>
+            <div class="employee__phone">{entry.data.phone}</div>
           </div>
         ))
       }
@@ -112,9 +108,5 @@ const { title, description } = Astro.props;
 
   .accordion__trigger-input:checked ~ .accordion__content {
     max-height: 1000px;
-  }
-
-  .ios__underline {
-    text-decoration: none !important;
   }
 </style>
