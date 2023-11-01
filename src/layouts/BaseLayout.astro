@@ -8,8 +8,6 @@ export interface Props {
 
 const { title } = Astro.props;
 const canonicalURL = (Astro.url.pathname, Astro.site);
-const currentPath = Astro.url.pathname;
-const showLogo = currentPath === "/" || currentPath.startsWith("/category");
 ---
 
 <!doctype html>
@@ -17,12 +15,11 @@ const showLogo = currentPath === "/" || currentPath.startsWith("/category");
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <meta name="Klas Näsman" content="Wedding Photographer based in Stockholm, Sweden" />
-    <meta name="description" content="Klas Näsman, Wedding Photographer based in Stockholm, Sweden." />
+    <meta name="description" content="Wedding Photographer based in Stockholm, Sweden." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:title" content="Klas Näsman Wedding Photography" />
-    <meta property="og:description" content="Wedding Photographer based in Stockholm, Sweden" />
+    <meta property="og:description" content="Wedding Photographer based in Stockholm, Sweden." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Klas Näsman Wedding Photography" />
     <meta name="theme-color" content="#000000" />

@@ -23,7 +23,6 @@
   --ease-l: 0.8s;
 
   --container-width: min(120ch, calc(100% - 2rem));
-  --container-start: 12rem;
   --header-height: 48px;
   --header-height-neg: -48px;
 
@@ -37,11 +36,4 @@
   --color-yellow2: hsl(43, 90%, 58%);
   --color-purple: hsl(240, 100%, 91%);
   --color-red: hsl(11, 93%, 56%);
-}
-
-
-@media (width<=900px) {
-  :root {
-    --container-start: 8rem;
-  }
 }
