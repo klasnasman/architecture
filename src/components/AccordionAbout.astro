@@ -26,7 +26,9 @@ const { title, description } = Astro.props;
             </figure>
             <div class="employee__name">{entry.data.name}</div>
             <div class="employee__position">{entry.data.position}</div>
-            <div class="employee__email">{entry.data.email}</div>
+            <div class="employee__email">
+              <a href="mailto:mail">{entry.data.email}</a>
+            </div>
             <div class="employee__phone">{entry.data.phone}</div>
           </div>
         ))
