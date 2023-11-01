@@ -17,8 +17,10 @@
   --spacer-xl: 4rem;
   --spacer-xxl: 8rem;
 
+  --ease-xs: 0.2s;
   --ease-s: 0.4s;
   --ease-m: 0.6s;
+  --ease-l: 0.8s;
 
   --container-width: min(120ch, calc(100% - 2rem));
   --container-start: 12rem;

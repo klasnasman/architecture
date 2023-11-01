@@ -31,7 +31,6 @@ main {
     flex-direction: column;
     margin-block-start: 8rem;
     min-height: 100dvh;
-    width: 100vw;
 }
 
 .flow>*+* {
@@ -42,7 +41,7 @@ main {
     opacity: 0;
     filter: blur(10px);
     transform: translateY(10px);
-    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s ease;
+    transition: opacity var(--ease-l) ease, filter var(--ease-l) ease, transform var(--ease-l) ease;
 }
 
 .lazy__load-active {
@@ -61,8 +60,3 @@ main {
     color: var(--color-text);
     text-wrap: pretty;
 }
-
-/* selected and hover states */
-/* header.astro */
-
-/* filters.astro */

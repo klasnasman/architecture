@@ -38,7 +38,7 @@ const currentPath = Astro.url.pathname;
       <a href={`/category/${tag}`}>
         <button
           id="filter"
-          class={`filter ${decodeURIComponent(currentPath) === `/category/${tag}` ? "selected" : ""}`}>
+          class={`filter ${decodeURIComponent(currentPath) === `/category/${tag}/` ? "selected" : ""}`}>
           {tag}
         </button>
       </a>
@@ -92,7 +92,7 @@ const currentPath = Astro.url.pathname;
     width: 100%;
     background-color: var(--color-bg);
     transform: translateY(0rem);
-    transition: transform 0.6s ease 0.4s;
+    transition: transform var(--ease-m) ease 0.4s;
   }
 
   .filters.open {
@@ -146,8 +146,8 @@ const currentPath = Astro.url.pathname;
     font-family: var(--ff-body);
     margin-inline-start: 0.5rem;
     transition:
-      transform 0.6s ease-out,
-      color 0.6s ease-out;
+      transform var(--ease-m) ease-out,
+      color var(--ease-m) ease-out;
     display: inline-block;
   }
 

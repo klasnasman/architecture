@@ -7,8 +7,8 @@ const currentPath = Astro.url.pathname;
     <div class="nav__logo"><a href="/">Årsta Arkitektbyrå</a></div>
     <div class="nav__links">
       <a class={`link ${currentPath === "/" ? "selected" : ""}`} href="/">Work</a>
-      <a class={`link ${currentPath === "/about/process" ? "selected" : ""}`} href="/about/process">Process</a>
-      <a class={`link ${currentPath === "/about/us" ? "selected" : ""}`} href="/about/us">About</a>
+      <a class={`link ${currentPath === "/about/process/" ? "selected" : ""}`} href="/about/process">Process</a>
+      <a class={`link ${currentPath === "/about/us/" ? "selected" : ""}`} href="/about/us">About</a>
     </div>
   </nav>
 </header>

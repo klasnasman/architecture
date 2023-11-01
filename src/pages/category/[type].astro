@@ -80,7 +80,7 @@ const { posts } = Astro.props;
     transition: grd;
     padding-inline: var(--spacer-m);
     padding-block-end: var(--spacer-l);
-    transition: all ease-in-out 0.6s;
+    transition: all ease-in-out var(--ease-m);
   }
 
   .smaller-grid {
@@ -113,8 +113,8 @@ const { posts } = Astro.props;
     visibility: hidden;
     opacity: 0;
     transition:
-      visibility 0.2s linear,
-      opacity 0.2s linear;
+      visibility var(--ease-xs) linear,
+      opacity var(--ease-xs) linear;
   }
 
   @media (hover: none) {
