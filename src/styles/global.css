@@ -31,6 +31,8 @@ main {
     flex-direction: column;
     margin-block-start: 8rem;
     min-height: 100dvh;
+    position: relative;
+    left: calc((100vw - 100%) / 2);
 }
 
 .flow>*+* {
