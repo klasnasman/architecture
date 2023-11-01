@@ -53,7 +53,7 @@ main {
 
 :where(a, p, label) {
     text-decoration: none;
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
     text-decoration-thickness: 1px;
     color: var(--color-text);
     text-wrap: pretty;
