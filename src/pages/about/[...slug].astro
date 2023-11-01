@@ -2,7 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Container from "@layouts/Container.astro";
+import ContainerLayout from "@layouts/ContainerLayout.astro";
 import AccordionAbout from "@components/AccordionAbout.astro";
 import AccordionProcess from "@components/AccordionProcess.astro";
 import Transitions from "@components/Transitions";
@@ -32,7 +32,7 @@ const process = normalizedPath.endsWith("/process");
 
 <BaseLayout title="about">
   <Transitions client:load>
-    <Container>
+    <ContainerLayout>
       <div class="content">
         <div class="markdown flow">
           <Content />
@@ -41,7 +41,7 @@ const process = normalizedPath.endsWith("/process");
       </div>
       {about && <AccordionAbout />}
       {process && <AccordionProcess />}
-    </Container>
+    </ContainerLayout>
   </Transitions>
 
   <style>
