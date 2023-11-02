@@ -26,8 +26,9 @@ function checkScroll() {
 function handleGridSizeChange() {
   const selectedOption = document.querySelector('input[name="grid__size"]:checked').value;
 
+  sessionStorage.setItem("selectedGridSize", selectedOption);
+
   if (selectedOption === "small") {
-    console.log(projectTitle);
     projectTitle.forEach((title) => {
       title.classList.add("row__wrap");
     });
@@ -48,6 +49,17 @@ function handleGridSizeChange() {
   }
 }
 
+function initGridSize() {
+  const selectedOption = sessionStorage.getItem("selectedGridSize");
+  if (selectedOption) {
+    const radioInput = document.querySelector(`input[value="${selectedOption}"]`);
+    if (radioInput) {
+      radioInput.checked = true;
+    }
+    handleGridSizeChange();
+  }
+}
+
 gridOptions.forEach((option) => {
   option.addEventListener("change", () => {
     handleGridSizeChange();
@@ -58,3 +70,5 @@ gridOptions.forEach((option) => {
 window.addEventListener("scroll", checkScroll);
 
 checkScroll();
+
+window.addEventListener("load", initGridSize);
