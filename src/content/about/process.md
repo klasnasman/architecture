@@ -1,5 +1,5 @@
 ---
-title: About the process
+title: About The Process
 thumb: ../../assets/about/process.jpg
 layout: ../../layouts/AboutLayout.astro
 ---

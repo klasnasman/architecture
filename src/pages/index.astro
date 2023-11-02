@@ -8,7 +8,7 @@ import Transitions from "@components/Transitions";
 const projects = await getCollection("project");
 ---
 
-<BaseLayout title="06">
+<BaseLayout title="KLAS NÄSMAN">
   <Transitions client:load>
     <section class="project__photos">
       {
@@ -120,56 +120,56 @@ const projects = await getCollection("project");
 </style>
 
 <script is:inline>
-const filterClickHandle = () => {
-  const buttonIcon = document.getElementById("button__icon");
-  const filterButton = document.getElementById("filter__btn");
-  const filterDiv = document.querySelector(".filters");
-  const navLinks = document.querySelectorAll(".link");
-  const projectLinks = document.querySelectorAll(".project__link");
+  const filterClickHandle = () => {
+    const buttonIcon = document.getElementById("button__icon");
+    const filterButton = document.getElementById("filter__btn");
+    const filterDiv = document.querySelector(".filters");
+    const navLinks = document.querySelectorAll(".link");
+    const projectLinks = document.querySelectorAll(".project__link");
 
-  const openFilters = () => {
-    buttonIcon.classList.add("open");
-    filterDiv.classList.add("open");
-    sessionStorage.setItem("filtersOpen", "true");
-  };
+    const openFilters = () => {
+      buttonIcon.classList.add("open");
+      filterDiv.classList.add("open");
+      sessionStorage.setItem("filtersOpen", "true");
+    };
 
-  const closeFilters = () => {
-    buttonIcon.classList.remove("open");
-    filterDiv.classList.remove("open");
-    sessionStorage.setItem("filtersOpen", "false");
-  };
+    const closeFilters = () => {
+      buttonIcon.classList.remove("open");
+      filterDiv.classList.remove("open");
+      sessionStorage.setItem("filtersOpen", "false");
+    };
 
-  if (window.location.pathname.includes("/project")) {
-    closeFilters();
-  }
+    if (window.location.pathname.includes("/project")) {
+      closeFilters();
+    }
 
-  if (filterButton) {
-    filterButton.addEventListener("click", (event) => {
-      if (filterDiv.classList.contains("open")) {
+    if (filterButton) {
+      filterButton.addEventListener("click", (event) => {
+        if (filterDiv.classList.contains("open")) {
+          closeFilters();
+        } else {
+          openFilters();
+        }
+      });
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
         closeFilters();
-      } else {
-        openFilters();
-      }
+      });
     });
-  }
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      closeFilters();
+    projectLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        closeFilters();
+      });
     });
-  });
 
-  projectLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      closeFilters();
-    });
-  });
+    const filtersOpen = sessionStorage.getItem("filtersOpen");
+    if (filtersOpen === "true") {
+      openFilters();
+    }
+  };
 
-  const filtersOpen = sessionStorage.getItem("filtersOpen");
-  if (filtersOpen === "true") {
-    openFilters();
-  }
-};
-
-filterClickHandle();
+  filterClickHandle();
 </script>

@@ -22,7 +22,7 @@ const { Content } = await entry.render();
 const photos = entry.data.images;
 ---
 
-<BaseLayout title={`${entry.data.project}`}>
+<BaseLayout title={`${entry.data.project.toUpperCase()}`}>
   <Transitions client:load>
     <Container>
       <div class="content">
