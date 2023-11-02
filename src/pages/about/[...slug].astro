@@ -21,8 +21,8 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
-const currentPath = Astro.url.pathname;
 
+const currentPath = Astro.url.pathname;
 const normalizedPath = currentPath.endsWith("/") ? currentPath.slice(0, -1) : currentPath;
 
 const about = normalizedPath.endsWith("/us");
@@ -32,11 +32,11 @@ const process = normalizedPath.endsWith("/process");
 <BaseLayout title="about">
   <Transitions client:load>
     <ContainerLayout>
-      <div class="content">
-        <div class="markdown flow">
+      <div class="markdown">
+        <div class="content flow">
           <Content />
         </div>
-        <Image class="project__img" src={entry.data.thumb} alt="" width={1200} />
+        <Image class="project__img" src={entry.data.thumb} alt="" width={320} />
       </div>
       {about && <AccordionAbout />}
       {process && <AccordionProcess />}
@@ -44,7 +44,7 @@ const process = normalizedPath.endsWith("/process");
   </Transitions>
 
   <style>
-    .content {
+    .markdown {
       display: flex;
       justify-content: flex-start;
       flex-direction: row;
@@ -52,12 +52,12 @@ const process = normalizedPath.endsWith("/process");
     }
 
     @media (width<=900px) {
-      .content {
+      .markdown {
         flex-direction: column;
       }
     }
 
-    .markdown {
+    .content {
       display: flex;
       justify-content: flex-start;
       flex-direction: column;

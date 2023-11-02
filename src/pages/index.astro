@@ -8,7 +8,7 @@ import Transitions from "@components/Transitions";
 const projects = await getCollection("project");
 ---
 
-<BaseLayout title="arkitektbyrå">
+<BaseLayout title="06">
   <Transitions client:load>
     <section class="project__photos">
       {
@@ -78,7 +78,6 @@ const projects = await getCollection("project");
   .project__img {
     min-width: inherit;
     min-height: inherit;
-    /* max-width: 440px; */
     aspect-ratio: 4 / 5;
   }
 
