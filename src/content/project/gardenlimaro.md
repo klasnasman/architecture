@@ -14,7 +14,7 @@ images:
   - ../../assets/project/ahus/06.jpg
   - ../../assets/project/ahus/07.jpg
   - ../../assets/project/ahus/08.jpg
-  - ../../assets/project/ahus/09.jpg
+  - ../../assets/project/ahus/01.jpg
 thumb: ../../assets/thumbs/03.jpg
 ---
 

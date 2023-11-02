@@ -14,8 +14,8 @@ images:
   - ../../assets/project/ahus/06.jpg
   - ../../assets/project/ahus/07.jpg
   - ../../assets/project/ahus/08.jpg
-  - ../../assets/project/ahus/09.jpg
-thumb: ../../assets/thumbs/07.jpg
+  - ../../assets/project/ahus/01.jpg
+thumb: ../../assets/thumbs/01.jpg
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
