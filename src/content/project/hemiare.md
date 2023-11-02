@@ -1,5 +1,5 @@
 ---
-project: Arcadia
+project: Hem i Åre
 type: Interior
 location: Copenhagen
 country: Denmark
