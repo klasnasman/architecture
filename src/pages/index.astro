@@ -35,36 +35,13 @@ const projects = await getCollection("project");
 </BaseLayout>
 
 <style>
-  .project__row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 0.5rem;
-  }
-
-  .row__wrap {
-    gap: 0rem;
-    flex-wrap: wrap;
-  }
-
-  .text {
-    flex-shrink: 0;
-  }
-
-  .line {
-    width: 100%;
-    height: 1px;
-    background-color: #000;
-  }
-
   .project__photos {
     display: grid;
     justify-items: center;
     grid-gap: var(--spacer-m);
     grid-template-columns: var(--grid-columns-medium);
     padding-inline: var(--spacer-m);
-    padding-block-end: 6rem;
+    padding-block-end: calc(var(--header-height) + var(--spacer-xl));
   }
 
   .smaller-grid {
@@ -116,6 +93,29 @@ const projects = await getCollection("project");
   a:hover .project__title {
     visibility: visible;
     opacity: 1;
+  }
+
+  .project__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .row__wrap {
+    gap: 0rem;
+    flex-wrap: wrap;
+  }
+
+  .text {
+    flex-shrink: 0;
+  }
+
+  .line {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
   }
 </style>
 

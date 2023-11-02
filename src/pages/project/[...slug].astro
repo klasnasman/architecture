@@ -60,7 +60,7 @@ const photos = entry.data.images;
     </Container>
     <section class="project__photos">
       {
-        photos.map((photo) => (
+        photos.map((photo: any) => (
           <div class="projects">
             <Image class="project__img lazy__load" src={photo} alt="Wedding Photo, couple" width={1200} />
           </div>
