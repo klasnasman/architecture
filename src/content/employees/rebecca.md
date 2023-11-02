@@ -1,7 +1,7 @@
 ---
 name: Eric Duval
-position: Designer
+position: Architect
 email: test@test.com
-phone: 08 122 13 14
-thumb: ../../assets/about/team/05.jpg
+phone: 08 000 00 00
+thumb: ../../assets/about/team/02.jpg
 ---
