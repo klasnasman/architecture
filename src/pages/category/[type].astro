@@ -84,30 +84,6 @@ const { posts } = Astro.props;
     text-transform: capitalize;
     position: initial;
     margin-block-start: var(--spacer-xs);
-    visibility: hidden;
-    opacity: 0;
-    transition:
-      visibility var(--ease-xs) linear,
-      opacity var(--ease-xs) linear;
-  }
-
-  @media (hover: none) {
-    .project__title {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
-  @media (width <=900px) {
-    .project__title {
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
-  a:hover .project__title {
-    visibility: visible;
-    opacity: 1;
   }
 
   .project__row {
