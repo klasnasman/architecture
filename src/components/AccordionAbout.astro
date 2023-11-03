@@ -104,5 +104,6 @@ const employees = await getCollection("employees");
 
   .accordion__trigger-input:checked ~ .accordion__content {
     max-height: 1000px;
+    transition: max-height 0.3s cubic-bezier(1, 0, 1, 0) var(--ease-xs);
   }
 </style>
