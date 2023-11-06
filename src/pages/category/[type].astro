@@ -53,7 +53,6 @@ const { posts } = Astro.props;
     justify-items: center;
     grid-gap: var(--spacer-m);
     grid-template-columns: var(--grid-columns-medium);
-    transition: grd;
     padding-inline: var(--spacer-m);
     padding-block-end: calc(var(--header-height) + var(--spacer-xl));
   }
@@ -74,8 +73,8 @@ const { posts } = Astro.props;
   }
 
   @media (hover: hover) {
-  .project__img:hover {
-    outline: 1px solid black;
+    .project__img:hover {
+      outline: 1px solid black;
     }
   }
 
