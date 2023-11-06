@@ -16,7 +16,7 @@ const currentPath = Astro.url.pathname;
 
 <div class="filter__container">
   <div class="filter__inner">
-    <button id="filter__btn">FILTER<span id="button__icon">+</span></button>
+    <button id="filter__button">FILTER<span id="button__icon">+</span></button>
   </div>
   <div class="grid__size__options">
     <p class="grid__size__title">GRID:</p>
@@ -32,14 +32,12 @@ const currentPath = Astro.url.pathname;
 </div>
 <div class="filters">
   <a href="/">
-    <button id="filter" class={`filter ${currentPath === "/" ? "selected" : ""}`}>All</button>
+    <button class={`filter ${currentPath === "/" ? "selected" : ""}`}>All</button>
   </a>
   {
     uniqueTypesArray.map((tag) => (
       <a href={`/category/${tag}`}>
-        <button
-          id="filter"
-          class={`filter ${decodeURIComponent(currentPath) === `/category/${tag}/` ? "selected" : ""}`}>
+        <button class={`filter ${decodeURIComponent(currentPath) === `/category/${tag}/` ? "selected" : ""}`}>
           {tag}
         </button>
       </a>

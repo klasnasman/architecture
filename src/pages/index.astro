@@ -60,8 +60,8 @@ const projects = await getCollection("project");
   }
 
   @media (hover: hover) {
-  .project__img:hover {
-    outline: 1px solid black;
+    .project__img:hover {
+      outline: 1px solid black;
     }
   }
 
@@ -101,7 +101,7 @@ const projects = await getCollection("project");
 <script is:inline>
   const filterClickHandle = () => {
     const buttonIcon = document.getElementById("button__icon");
-    const filterButton = document.getElementById("filter__btn");
+    const filterButton = document.getElementById("filter__button");
     const filterDiv = document.querySelector(".filters");
     const navLinks = document.querySelectorAll(".link");
     const projectLinks = document.querySelectorAll(".project__link");
