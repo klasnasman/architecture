@@ -42,37 +42,37 @@ const process = normalizedPath.endsWith("/process");
       {process && <AccordionProcess />}
     </ContainerLayout>
   </Transitions>
+</BaseLayout>
 
-  <style>
+<style>
+  .markdown {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  @media (width<=900px) {
     .markdown {
-      display: flex;
-      justify-content: flex-start;
-      flex-direction: row;
-      gap: 2rem;
-    }
-
-    @media (width<=900px) {
-      .markdown {
-        flex-direction: column;
-      }
-    }
-
-    .content {
-      display: flex;
-      justify-content: flex-start;
       flex-direction: column;
     }
+  }
 
+  .content {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .project__img {
+    min-width: inherit;
+    min-height: inherit;
+    max-width: 400px;
+  }
+
+  @media (width<=900px) {
     .project__img {
-      min-width: inherit;
-      min-height: inherit;
-      max-width: 400px;
+      display: none;
     }
-
-    @media (width<=900px) {
-      .project__img {
-        display: none;
-      }
-    }
-  </style>
-</BaseLayout>
+  }
+</style>
