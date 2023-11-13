@@ -34,7 +34,7 @@ main {
 }
 
 .flow>*+* {
-    margin-top: var(--flow-space, 0.5em);
+    padding-top: var(--flow-space, 0.5em);
 }
 
 .lazy__load {
