@@ -33,6 +33,13 @@ main {
     width: 100%;
 }
 
+
+@media (width<=900px) {
+    main {
+        margin-block-start: 6rem;
+    }
+}
+
 .flow>*+* {
     padding-top: var(--flow-space, 0.5em);
 }
